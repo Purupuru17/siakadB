@@ -9,6 +9,7 @@ class Mahasiswa extends CI_Controller {
 		//array data -> nama yg isinya : LADY (string)
 		$var['nim'] = 12345;
 		$var['nama'] = 'LADY';
+		$var['univ'] = 'UNIMUDA';
 		$this->load->view('mahasiswa/view_lihat', $var);
 	}
 	public function tambah()
