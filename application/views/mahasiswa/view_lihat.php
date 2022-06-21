@@ -17,29 +17,26 @@
 		<th>AKSI</th>
 	</tr>
 	<!-- TABLE DATA -->
+	<!-- AWAL PERULANGAN -->
+	<?php
+	$nomor = 1;
+	foreach($data_mhs as $value){
+	?>
 	<tr>
-		<td>1</td>
-		<td>123110016</td>
-		<td>Galih Bayu</td>
-		<td>T. Informatika</td>
-		<td>Laki-Laki</td>
+		<td><?= $nomor ?></td>
+		<td><?= $value['nim'] ?></td> 
+		<td><?= $value['nama_mhs'] ?></td>
+		<td><?= $value['prodi'] ?></td>
+		<td><?= $value['jk_mhs'] ?></td>
 		<td>
-			<a class="btn btn-warning" href="<?= site_url('mahasiswa/ubah') ?>" >Ubah</a>
+			<a class="btn btn-warning" href="<?= site_url('mahasiswa/ubah/'.$value['id_mhs']) ?>" >Ubah</a>
 			<a class="btn btn-danger" href="<?= site_url('mahasiswa/hapus') ?>" >Hapus</a>
 		</td>
 	</tr>
-	<tr>
-		<td>2</td>
-		<td>123110017</td>
-		<td>Niluh Ajeng</td>
-		<td>Ekonomi</td>
-		<td>Perempuan</td>
-		<td>
-			<a class="btn btn-warning" href="<?= site_url('mahasiswa/ubah') ?>" >Ubah</a>
-			<a class="btn btn-danger" href="<?= site_url('mahasiswa/hapus') ?>" >Hapus</a>
-		</td>
-	</tr>
+	<!-- AKHIR PERULANGAN -->
+	<?php
+		$nomor = $nomor + 1;
+		//baru = 2   //lama = 1, + 1
+	}
+	?>
 </table>
-
-<?= print_r($data_mhs) ?>
-
