@@ -5,12 +5,11 @@ class Mahasiswa extends CI_Controller {
 
 	public function index()
 	{
-		//array data -> nim yg isinya : 12345 (int)
-		//array data -> nama yg isinya : LADY (string)
-		$var['nim'] = 12345;
-		$var['nama'] = 'LADY';
-		$var['univ'] = 'UNIMUDA';
-		$this->load->view('mahasiswa/view_lihat', $var);
+		$this->load->model('mhs_model'); //LOAD MODEL di CONTROLLER
+
+		$var['data_mhs'] = $this->mhs_model->select(); //PANGGIL FUNGSI
+
+		$this->load->view('mahasiswa/view_lihat', $var) ; //KIRIM DATA ke VIEW
 	}
 	public function tambah()
 	{

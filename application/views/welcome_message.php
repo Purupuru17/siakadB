@@ -1,8 +1,4 @@
-<!-- versi lama -->
-<link rel="stylesheet" href="include/bootstrap.min.css">
-<!-- versi final -->
 <link rel="stylesheet" href="<?= base_url('include/bootstrap.min.css') ?>">
-
 
 <h1 class="text-primary">SELAMAT DATANG UNIMUDA</h1>
 <hr>
