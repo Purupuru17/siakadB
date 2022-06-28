@@ -30,7 +30,7 @@
 		<td><?= $value['jk_mhs'] ?></td>
 		<td>
 			<a class="btn btn-warning" href="<?= site_url('mahasiswa/ubah/'.$value['id_mhs']) ?>" >Ubah</a>
-			<a class="btn btn-danger" href="<?= site_url('mahasiswa/hapus') ?>" >Hapus</a>
+			<a class="btn btn-danger" href="<?= site_url('mahasiswa/hapus/'.$value['id_mhs']) ?>" >Hapus</a>
 		</td>
 	</tr>
 	<!-- AKHIR PERULANGAN -->

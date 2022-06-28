@@ -25,16 +25,20 @@ class Mhs_model extends CI_Model {
 		$result = $this->db->get(); // AMBIL DATA
 		return $result->row_array(); // KIRIM DATA DALAM ARRAY (1 data)
 	}
-	function insert()
+	function insert($data)
 	{
-		
+		$this->db->set($this->id,'UUID()',FALSE);
+		$result = $this->db->insert($this->table, $data);
+		return $result;
 	}
 	function update()
 	{
 		
 	}
-	function delete()
+	function delete($id)
 	{
-		
+		$this->db->where($this->id, $id); //hapus berdasarkan ID
+		$result = $this->db->delete($this->table); //hapus data
+		return $result;
 	}
 }

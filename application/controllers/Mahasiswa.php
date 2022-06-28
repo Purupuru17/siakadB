@@ -18,6 +18,27 @@ class Mahasiswa extends CI_Controller {
 	{
 		$this->load->view('mahasiswa/view_tambah');
 	}
+	public function tambah_aksi()
+	{
+		//simpan ke database
+		$input = $this->input->post(); //ambil input dengan method POST dari View
+		//print_r($input);
+		//exit();
+		//database        //view
+		$data['nim'] = $input['nim'];
+		$data['nama_mhs'] = $input['nama'];
+		$data['prodi'] = 'PTI';
+		$data['jk_mhs'] = null;
+		$data['agama_mhs'] = null;
+
+		$this->load->model('mhs_model');
+		$insert = $this->mhs_model->insert($data); //kirim data ke mhs_model
+		if($insert){
+			redirect('mahasiswa'); //kalau berhasil
+		}else{
+			redirect('mahasiswa/tambah'); //kalau gagal
+		}
+	}
 	public function ubah($id)
 	{	
 		$this->load->model('mhs_model'); //LOAD MODEL di CONTROLLER
@@ -26,8 +47,14 @@ class Mahasiswa extends CI_Controller {
 
 		$this->load->view('mahasiswa/view_ubah', $var);
 	}
-	public function hapus()
+	public function hapus($id)
 	{
-		$this->load->view('mahasiswa/view_hapus');
+		$this->load->model('mhs_model');
+		$delete = $this->mhs_model->delete($id); //kirim id ke mhs_model
+		if($delete){
+			redirect('mahasiswa'); //kalau berhasil
+		}else{
+			redirect('mahasiswa'); //kalau gagal
+		}
 	}
 }
