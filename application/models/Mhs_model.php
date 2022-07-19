@@ -25,20 +25,33 @@ class Mhs_model extends CI_Model {
 		$result = $this->db->get(); // AMBIL DATA
 		return $result->row_array(); // KIRIM DATA DALAM ARRAY (1 data)
 	}
+	function selectEmpty()
+	{
+		$var['id_mhs'] = null;
+		$var['nim'] = null;
+		$var['nama_mhs'] = null;
+		$var['prodi'] = null;
+		$var['jk_mhs'] = null;
+		$var['agama_mhs'] = null;
+
+		return $var;
+	}
 	function insert($data)
 	{
 		$this->db->set($this->id,'UUID()',FALSE);
 		$result = $this->db->insert($this->table, $data);
 		return $result;
 	}
-	function update()
+	function update($id, $data)
 	{
-		
+		$this->db->where($this->id, $id);
+		$result = $this->db->update($this->table, $data);
+		return $result;	
 	}
 	function delete($id)
 	{
-		$this->db->where($this->id, $id); //hapus berdasarkan ID
-		$result = $this->db->delete($this->table); //hapus data
+		$this->db->where($this->id, $id);
+		$result = $this->db->delete($this->table);
 		return $result;
 	}
 }

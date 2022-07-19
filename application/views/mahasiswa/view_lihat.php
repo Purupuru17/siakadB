@@ -1,9 +1,13 @@
 <link rel="stylesheet" href="<?= base_url('include/bootstrap.min.css') ?>">
-
+<style>
+	th, td {
+		text-align: center;
+	}
+</style>
 <h1 class="text-primary">DATA MAHASISWA</h1>
 <hr>
 
-<a class="btn btn-primary" href="<?= site_url('mahasiswa/tambah') ?>" >Tambah Data</a>
+<a class="btn btn-sm btn-primary" href="<?= site_url('mahasiswa/tambah') ?>" >Tambah Data</a>
 
 <br><br>
 <table class="table table-bordered">
@@ -14,6 +18,7 @@
 		<th>NAMA</th>
 		<th>PROGRAM STUDI</th>
 		<th>JENIS KELAMIN</th>
+		<th>AGAMA</th>
 		<th>AKSI</th>
 	</tr>
 	<!-- TABLE DATA -->
@@ -28,9 +33,10 @@
 		<td><?= $value['nama_mhs'] ?></td>
 		<td><?= $value['prodi'] ?></td>
 		<td><?= $value['jk_mhs'] ?></td>
+		<td><?= $value['agama_mhs'] ?></td>
 		<td>
-			<a class="btn btn-warning" href="<?= site_url('mahasiswa/ubah/'.$value['id_mhs']) ?>" >Ubah</a>
-			<a class="btn btn-danger" href="<?= site_url('mahasiswa/hapus/'.$value['id_mhs']) ?>" >Hapus</a>
+			<a class="btn btn-xs btn-warning" href="<?= site_url('mahasiswa/ubah/'.$value['id_mhs']) ?>" >Ubah</a>
+			<a class="btn btn-xs btn-danger" href="<?= site_url('mahasiswa/hapus/'.$value['id_mhs']) ?>" onclick="return confirm('Yakin mau hapus ?')" >Hapus</a>
 		</td>
 	</tr>
 	<!-- AKHIR PERULANGAN -->
